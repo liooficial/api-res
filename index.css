@@ -1,0 +1,129 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    --textos: #050007;
+    --principal: #c471ed;
+}
+
+body{
+    font-family:'open sans';
+}
+.contenedor{
+    padding: 60px 0;
+    width: 90%;
+    max-width:1000px;
+    margin:auto;
+    overflow: hidden;
+}
+.titulo{
+    color:var(--textos);
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+/*Header
+
+*/
+header{
+    width: 100%;
+    height: 670px;
+    background: #74ebd5;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #12c2e989, #c471ed85,#f64f5a89), url(https://www.wallpapertip.com/wmimgs/100-1002142_server-room-purple-uhd-4k-wallpaper-server-room.jpg);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #12c2e989, #c471ed85,#f64f5a89), url(https://www.wallpapertip.com/wmimgs/100-1002142_server-room-purple-uhd-4k-wallpaper-server-room.jpg);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-attachment: fixed;
+    position: relative;
+    background-position: center center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+header .textos-header{
+    display: flex;
+    height: 430px;
+    width: 100%;
+    align-items:center ;
+    justify-content:center;
+    flex-direction: column;
+    text-align: center;
+}
+.textos-header h1{
+    font-size: 80px;
+    -webkit-text-stroke: 2px black;
+    color:#f2f2f2;
+}
+.textos-header h2{
+    font-size: 30px;
+    font-weight: 300;
+    color:var(--textos);
+}
+.wave{
+    position:absolute;
+    bottom:0;
+    width:100%;
+}
+/*about us*/
+main .sobre-nosotros{
+    padding: 30px 0 60px 0;
+}
+.contrnedor-sobre-nosotros{
+    margin-right: 40px;
+    justify-content: space-evenly;
+}
+.sobre-nosotros .contenido-textos
+{
+    width: 88%;
+}
+.sobre-nosotros h2
+{
+    font-size: 50px;
+    font-style:italic; 
+}
+.contenido-textos{
+    margin-bottom: 15px;
+}
+.contenido-textos h3 {
+    font-size: 50px;
+}
+.contenido-textos h3 span{
+    background: var(--principal);
+    font-style: italic;
+    color: var(--textos);
+    border-radius:50% ;
+    display: inline-block;
+    text-align: center;
+    width: 60px;
+    height: 60px;
+    font-size: 40px;
+    margin-bottom: 30PX;
+    padding: 2px;
+    box-shadow:0 0 6px rgba(0,0,0,.5) ;
+    margin-right: 5px;
+}
+.contenido-textos p{
+    font-size: 40px;
+    padding:0PX 0PX 30PX 15PX;
+    font-weight: 300;
+    font-style: italic;
+    text-align: justify;
+}
+.contenido-textos ol{
+    font-size: 40px;
+    padding:0PX 0PX 30PX 35PX;
+    font-weight: 300;
+    font-style: italic;
+    text-align: justify;
+}
+.titulo{
+    font-size: 80px;
+    padding:0PX 0PX 30PX 35PX;
+    font-weight: 300;
+    font-style: italic;
+    text-align: justify;
+}
+canvas {
+    max-width: 800px;
+    margin: 0 auto;
+}

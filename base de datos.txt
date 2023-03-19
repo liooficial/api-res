@@ -1,0 +1,5 @@
+mongod
+mongo
+use nombre_de_la_base_de_datos
+db.createCollection("nombre_de_la_colección")
+db.nombre_de_la_colección.insert({nombre: "Juan", apellido: "Pérez", edad: 30})
