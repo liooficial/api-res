@@ -1,5 +1,5 @@
-
 const express = require('express');
+
 const app =express();
 
 app.use (express.json());
@@ -31,21 +31,22 @@ app.get(('/api/students/:id'),(req,res)=>{
 
 app.post('/api/students', (req, res) => {
     const student = {
-      id: students.length + 1,
-      name: req.body.name,
-      age: parseInt(req.body.age),
-      enroll: (req.body.enroll === 'true')
+    id: students.length + 1,
+    name: req.body.name,
+    age: parseInt(req.body.age),
+    enroll: (req.body.enroll === 'true')
     };
     students.push(student);
     res.send(student);
-  });
-  
+});
 
-app.delete('/api/students',(req,res)=>{
-    const student= students.find(c =>c.id === parseInt(req.params.id));
-    if(!student)return res.status(404).send('Estudiante no encontrado'); 
-    const index= student.indexOf(student);
-    student.splice(index,1);
+
+app.delete('/api/students/:id',(req, res) => {
+    const student = students.find(c => c.id === parseInt(req.params.id));
+    if (!student) return res.status(404).send('Estudiante no encontrado');
+
+    const index = students.indexOf(student);
+    students.splice(index, 1);
     res.send(student);
 });
 
