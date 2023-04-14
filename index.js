@@ -1,54 +1,16 @@
+require('dotenv').config()
 
 const express = require('express');
-const app =express();
+const bodyParser = require('body-parser');
+const { databaseservice } = require('./base_de_datos/databaseservice');
 
-app.use (express.json());
+const app = express();
+app.use(bodyParser.json());
+const dbService = databaseservice();
 
-const students=[
-    {id: 1, name: 'adrian', age: 20, enroll: true},
-    {id: 2, name: 'mich', age: 20, enroll: true},
-    {id: 3, name: 'maria', age: 20, enroll: true},
-    {id: 4, name: 'luz', age: 20, enroll: true},
-    {id: 5, name: 'diana', age: 20, enroll: true},
-    {id: 6, name: 'vicente', age: 20, enroll: true},
-    {id: 7, name: 'julio', age: 20, enroll: true},
-];
+require('./routes')(app,dbService);
 
-app.get(('/'),(req,res)=>{
-    res.send('Node JS api');
+
+app.listen (3004, function() {
+    console.log(`Escuchado en el puerto 80...`)
 });
-
-app.get(('/api/students'),(req,res)=>{
-    res.send(students);
-});
-
-
-app.get(('/api/students/:id'),(req,res)=>{
-    const student= students.find(c =>c.id === parseInt(req.params.id));
-    if(!student)return res.status(404).send('Estudiante no encontrado');
-    else res.send(student);
-});
-
-app.post('/api/students', (req, res) => {
-    const student = {
-      id: students.length + 1,
-      name: req.body.name,
-      age: parseInt(req.body.age),
-      enroll: (req.body.enroll === 'true')
-    };
-    students.push(student);
-    res.send(student);
-  });
-  
-
-app.delete('/api/students',(req,res)=>{
-    const student= students.find(c =>c.id === parseInt(req.params.id));
-    if(!student)return res.status(404).send('Estudiante no encontrado'); 
-    const index= student.indexOf(student);
-    student.splice(index,1);
-    res.send(student);
-});
-
-
-const port = process.env.port || 80;
-app.listen(port,() => console.log(`Escuchado en el puerto ${port}...`));
